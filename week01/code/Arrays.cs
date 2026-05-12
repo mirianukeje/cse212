@@ -12,8 +12,21 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+        //solution plan:
+        // 1. Create a new double array with the size given by length.
+        // 2. Use a loop to move through each index of the array.
+        // 3. For each index, multiply number by index + 1.
+        // 4. Store that value in the array.
+        // 5. Return the completed array.
 
-        return []; // replace this return statement with your own
+    double[] result = new double[length];
+
+    for (int i = 0; i < length; i++)
+    {
+        result[i] = number * (i + 1);
+    }
+
+        return result; // replace this return statement with your own
     }
 
     /// <summary>
@@ -29,5 +42,19 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+        //solution plan:
+        // 1. Find the starting index of the items that should move to the front.
+        // 2. Copy the last "amount" items into a temporary list.
+        // 3. Remove those same items from the end of the original list.
+        // 4. Insert the temporary list at the beginning of the original list.
+        // 5. The original list is now rotated to the right.
+
+    int startIndex = data.Count - amount;
+
+    List<int> itemsToMove = data.GetRange(startIndex, amount);
+
+    data.RemoveRange(startIndex, amount);
+
+    data.InsertRange(0, itemsToMove);
     }
 }
