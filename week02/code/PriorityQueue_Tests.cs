@@ -6,23 +6,37 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 public class PriorityQueueTests
 {
     [TestMethod]
-    // Scenario: 
-    // Expected Result: 
-    // Defect(s) Found: 
+    // Scenario: Add three items with different priorities, then remove them all
+    // Expected Result: The highest priority comes out first, so B, then C, then A
+    // Defect(s) Found: The method was not checking the entire list and also didn’t remove the item after returning it
     public void TestPriorityQueue_1()
     {
         var priorityQueue = new PriorityQueue();
-        Assert.Fail("Implement the test case and then remove this.");
+
+        priorityQueue.Enqueue("A", 1);
+        priorityQueue.Enqueue("B", 3);
+        priorityQueue.Enqueue("C", 2);
+
+        Assert.AreEqual("B", priorityQueue.Dequeue());
+        Assert.AreEqual("C", priorityQueue.Dequeue());
+        Assert.AreEqual("A", priorityQueue.Dequeue());
     }
 
     [TestMethod]
-    // Scenario: 
-    // Expected Result: 
-    // Defect(s) Found: 
+    // Scenario: Add three items with the same priority and remove them
+    // Expected Result: Since all priorities are equal, they should come out in the order added (A, B, C)
+    // Defect(s) Found: The comparison was using >=, which caused the last matching item to be returned first instead of the first one
     public void TestPriorityQueue_2()
     {
         var priorityQueue = new PriorityQueue();
-        Assert.Fail("Implement the test case and then remove this.");
+
+        priorityQueue.Enqueue("A", 2);
+        priorityQueue.Enqueue("B", 2);
+        priorityQueue.Enqueue("C", 2);
+
+        Assert.AreEqual("A", priorityQueue.Dequeue());
+        Assert.AreEqual("B", priorityQueue.Dequeue());
+        Assert.AreEqual("C", priorityQueue.Dequeue());
     }
 
     // Add more test cases as needed below.
