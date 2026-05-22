@@ -135,7 +135,7 @@ public class TakingTurnsQueueTests
     [TestMethod]
     // Scenario: Try to get a person from an empty queue
     // Expected Result: Should throw an InvalidOperationException with the correct message
-    // Defect(s) Found: No exception or wrong exception message when queue was empty.
+    // Defect(s) Found: None.
     public void TestTakingTurnsQueue_Empty()
     {
         var players = new TakingTurnsQueue();
