@@ -32,7 +32,7 @@ public class Maze
     /// </summary>
     public void MoveLeft()
     {
-        // FILL IN CODE
+        TryMove(0, -1, 0);
     }
 
     /// <summary>
@@ -41,7 +41,7 @@ public class Maze
     /// </summary>
     public void MoveRight()
     {
-        // FILL IN CODE
+        TryMove(1, 1, 0);
     }
 
     /// <summary>
@@ -50,7 +50,7 @@ public class Maze
     /// </summary>
     public void MoveUp()
     {
-        // FILL IN CODE
+        TryMove(2, 0, -1);
     }
 
     /// <summary>
@@ -59,7 +59,20 @@ public class Maze
     /// </summary>
     public void MoveDown()
     {
-        // FILL IN CODE
+        TryMove(3, 0, 1);
+    }
+
+    private void TryMove(int direction, int xMove, int yMove)
+    {
+        var currentSpot = (_currX, _currY);
+
+        if (!_mazeMap[currentSpot][direction])
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
+
+        _currX += xMove;
+        _currY += yMove;
     }
 
     public string GetStatus()
