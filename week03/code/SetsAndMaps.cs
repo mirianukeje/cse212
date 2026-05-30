@@ -180,4 +180,4 @@ public static class SetsAndMaps
             .Select(feature => $"{feature.Properties.Place} - Mag {feature.Properties.Mag}")
             .ToArray();
     }
-}
+} 
